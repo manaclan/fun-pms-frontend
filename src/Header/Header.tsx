@@ -170,11 +170,17 @@ class AppHeader extends Component {
                   <CountryLanguageCurrencyButton />
                 </Col>
                 <Col>
-                  <LoginButton Text={this.state.loginButtonText} />
+                  <LoginButton text={this.state.loginButtonText} />
                 </Col>
                 <Col>
-                  <Button style={{"borderColor":"#fff","borderRadius":"6px",
-                    "color":"#fff","background":"rgba(1,148,243,1.00)"}}>
+                  <Button
+                    style={{
+                      borderColor: "#fff",
+                      borderRadius: "6px",
+                      color: "#fff",
+                      background: "rgba(1,148,243,1.00)",
+                    }}
+                  >
                     {this.state.registerButtonText}
                   </Button>
                 </Col>
