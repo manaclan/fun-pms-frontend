@@ -10,7 +10,7 @@ import {
   AppstoreOutlined,
 } from "@ant-design/icons";
 import Sider from "antd/lib/layout/Sider";
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 
 export const AppSider = () => {
   const isCollapsed = useAppSelector((state) => state.sider.isCollapsed);

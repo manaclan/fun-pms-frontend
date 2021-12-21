@@ -1,24 +1,33 @@
 import {
-  Avatar,
-  Button,
-  Checkbox,
-  Col,
-  Dropdown,
-  Form,
-  Input,
-  Row,
+  Avatar, Button,
+  Checkbox, Col,
+  Dropdown, Form,
+  Input, Row,
 } from "antd";
 import React, { ReactNode } from "react";
 import { connect } from "react-redux";
 import { UserOutlined, DownOutlined, LockOutlined } from "@ant-design/icons";
 import "./StyleOverride.css";
+import "./Style.css";
+import axios from "axios";
 
 export const LoginButton = (props: { text: string }) => {
+
+  const onFinish = (values: any) => {
+    // console.log('Received values of form: ', values);
+    const response = axios.post('https://fun-pms-backend.herokuapp.com/user/login',{
+      username: values.username,
+      password: values.password
+    })
+    console.log(response)
+  };
+
   const LoginForm = (
     <>
     <Form 
     style={{"background":"white", "padding":"15px 10px 5px 10px"}}
-    initialValues={{ remember: true }}>
+    initialValues={{ remember: true }}
+    onFinish={onFinish}>
         <Form.Item
           name="username"
           rules={[{ required: true, message: "Please input your Username!" }]}
@@ -52,15 +61,18 @@ export const LoginButton = (props: { text: string }) => {
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form-button"
-          >
+            className="login-form-button">
             Log in
           </Button>
           Or <a href="">register now!</a>
         </Form.Item>
+        <Form.Item>
+        </Form.Item>
       </Form>
       </>
   );
+
+  
 
   return (
     <div>
