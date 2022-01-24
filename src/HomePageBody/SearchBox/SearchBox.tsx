@@ -11,7 +11,7 @@ export class SearchBox extends Component {
   state = {
     showModal: false,
     currentTab: "Hotels",
-    expandRightPane: true,
+    expandRightPane: false,
   };
 
   showModal = (event: React.MouseEvent<any>) => {
@@ -44,7 +44,7 @@ export class SearchBox extends Component {
       <div className={general["component-container"]}>
         <div className={showHideClassName} onClick={this.hideModal} />
         <Row justify="center">
-          <Col span={14}>
+          <Col span={12}>
             <Row
               onClick={this.showModal}
               className={
@@ -96,7 +96,8 @@ export class SearchBox extends Component {
                 />
               </Col>
               <Col
-                span={this.state.expandRightPane ? 6 : 18}
+                span={18}
+                className={this.state.expandRightPane? right.expand : right.normal}
                 onClick={this.expandRightPane}
               >
                 {

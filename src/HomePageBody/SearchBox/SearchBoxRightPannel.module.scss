@@ -1,2 +1,18 @@
+%background{
+  background-color: rgba(247,249,250,1.00)
+  ;
+}
+
 .expand {
+  @extend %background;
+  -moz-transition: height .5s;
+  -ms-transition: height .5s;
+  -o-transition: height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+  position: relative;
+  margin: 0 0 0 -20px;
+}
+.normal{
+  @extend %background;
 }
