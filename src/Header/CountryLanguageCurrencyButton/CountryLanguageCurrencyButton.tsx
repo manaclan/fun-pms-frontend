@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { DownOutlined, CheckOutlined } from "@ant-design/icons";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import "./StyleOverride.css";
+import "./StyleOverride.scss";
 import {
   changeCountryAndLanguage,
   changeCurrency,

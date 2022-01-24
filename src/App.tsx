@@ -1,10 +1,10 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import AppHeader from "./Header/Header";
-import Home from "./Home/Home";
+import HomePageBody from "./HomePageBody/HomePageBody";
 import { Layout } from "antd";
 import { AppSider } from "./Sider/Sider";
 
@@ -19,13 +19,13 @@ function App() {
           <Content>
             <BrowserRouter>
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<HomePageBody />} />
               </Routes>
             </BrowserRouter>
           </Content>
           <AppSider />
         </Layout>
-        <Footer>Footer</Footer>
+        {/* <Footer>Footer</Footer> */}
       </Layout>
     </div>
   );

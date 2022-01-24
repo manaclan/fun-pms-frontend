@@ -1,33 +1,52 @@
 import {
-  Avatar, Button,
-  Checkbox, Col,
-  Dropdown, Form,
-  Input, Row,
+  Avatar,
+  Button,
+  Checkbox,
+  Col,
+  Dropdown,
+  Form,
+  Input,
+  Row,
 } from "antd";
 import React, { ReactNode } from "react";
 import { connect } from "react-redux";
 import { UserOutlined, DownOutlined, LockOutlined } from "@ant-design/icons";
-import "./StyleOverride.css";
-import "./Style.css";
+import "./StyleOverride.scss";
+import "./Style.scss";
 import axios from "axios";
+import FormData from "form-data";
 
 export const LoginButton = (props: { text: string }) => {
-
   const onFinish = (values: any) => {
-    // console.log('Received values of form: ', values);
-    const response = axios.post('https://fun-pms-backend.herokuapp.com/user/login',{
-      username: values.username,
-      password: values.password
+    const data = new FormData();
+    data.append("username", "admin");
+    data.append("password", "admin");
+    const response = axios({
+      method: "post",
+      url: "user/login",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers":
+          "Origin, X-Requested-With, Content-Type, Accept",
+      },
+      data: data,
     })
-    console.log(response)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const LoginForm = (
     <>
-    <Form 
-    style={{"background":"white", "padding":"15px 10px 5px 10px"}}
-    initialValues={{ remember: true }}
-    onFinish={onFinish}>
+      <Form
+        style={{ background: "white", padding: "15px 10px 5px 10px" }}
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+      >
         <Form.Item
           name="username"
           rules={[{ required: true, message: "Please input your Username!" }]}
@@ -61,18 +80,16 @@ export const LoginButton = (props: { text: string }) => {
           <Button
             type="primary"
             htmlType="submit"
-            className="login-form-button">
+            className="login-form-button"
+          >
             Log in
           </Button>
           Or <a href="">register now!</a>
         </Form.Item>
-        <Form.Item>
-        </Form.Item>
+        <Form.Item></Form.Item>
       </Form>
-      </>
+    </>
   );
-
-  
 
   return (
     <div>

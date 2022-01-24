@@ -12,7 +12,7 @@ import {
   FormOutlined,
 } from "@ant-design/icons";
 import "flag-icon-css/css/flag-icons.min.css";
-import "./CountryLanguageCurrencyButton/flag.css";
+import "./CountryLanguageCurrencyButton/flag.scss";
 import { CountryLanguageCurrencyButton } from "./CountryLanguageCurrencyButton/CountryLanguageCurrencyButton";
 import i18next from "i18next";
 import { store } from "../app/store";

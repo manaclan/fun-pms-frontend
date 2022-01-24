@@ -1,0 +1,12 @@
+.normal-tab {
+  padding: 10px 0px 0px 0px !important;
+}
+.normal-tab:hover {
+  background: #fff;
+}
+.selected-tab {
+  background: #fff;
+  padding: 10px 0 0 0 !important;
+  border: solid rgb(35, 93, 159);
+  border-width: 0 0 0 3px;
+}
