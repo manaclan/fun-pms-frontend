@@ -6,6 +6,7 @@ import left from "./SearchBoxLeftPannel.module.scss";
 import right from "./SearchBoxRightPannel.module.scss";
 import Grid from "antd/lib/card/Grid";
 import { HotelsTab } from "./RightTabs/HotelsTab";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 export class SearchBox extends Component {
   state = {
@@ -26,9 +27,12 @@ export class SearchBox extends Component {
   };
 
   expandRightPane = (event: React.MouseEvent<any>) => {
-    if (event.target === event.currentTarget) {
-      this.setState({ expandRightPane: !this.state.expandRightPane });
-    }
+    console.log(event.target, event.currentTarget);
+    event.preventDefault();
+    this.setState({ expandRightPane: !this.state.expandRightPane });
+    // if (event.target === event.currentTarget) {
+    //   this.setState({ expandRightPane: !this.state.expandRightPane });
+    // }
   };
 
   render() {
@@ -97,14 +101,27 @@ export class SearchBox extends Component {
               </Col>
               <Col
                 span={18}
-                className={this.state.expandRightPane? right.expand : right.normal}
-                onClick={this.expandRightPane}
-              >
-                {
-                  services.filter(
-                    (service) => service.name === this.state.currentTab
-                  )[0].render
+                className={
+                  this.state.expandRightPane ? right["right-pane-expand"] : right["right-pane-normal"]
                 }
+              >
+                <Row style={{ height: "100%"}}>
+                  <Col
+                    className={right.expander}
+                    onClick={this.expandRightPane}
+                  >
+                    <Row align="middle" style={{ height: "100%" }}>
+                      {this.state.expandRightPane ? (<RightOutlined />) : (<LeftOutlined />)}
+                    </Row>
+                  </Col>
+                  <Col>
+                    {
+                      services.filter(
+                        (service) => service.name === this.state.currentTab
+                      )[0].render
+                    }
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </Col>

@@ -1,18 +1,30 @@
-%background{
-  background-color: rgba(247,249,250,1.00)
-  ;
+%right-pane-base {
+  background-color: rgba(247, 249, 250, 1);
+  border: solid rgba(205,208,209,1.00);
+  border-width: 0 0 0 1px;
 }
 
-.expand {
-  @extend %background;
-  -moz-transition: height .5s;
-  -ms-transition: height .5s;
-  -o-transition: height .5s;
-  -webkit-transition: height .5s;
-  transition: height .5s;
+.right-pane-expand {
+  @extend %right-pane-base;
+  -moz-transition: margin 0.3s;
+  -ms-transition: margin 0.3s;
+  -o-transition: margin 0.3s;
+  -webkit-transition: margin 0.3s;
+  transition: margin 0.3s;
   position: relative;
-  margin: 0 0 0 -20px;
+  margin: 0 0 0 -100px;
 }
-.normal{
-  @extend %background;
+.right-pane-normal {
+  @extend %right-pane-base;
+  -moz-transition: margin 0.3s;
+  -ms-transition: margin 0.3s;
+  -o-transition: margin 0.3s;
+  -webkit-transition: margin 0.3s;
+  transition: margin 0.3s;
+  position: relative;
+  margin: 0 0 0 0;
+}
+
+.expander:hover {
+  background-color: rgba(205, 208, 209, 0.31);
 }
